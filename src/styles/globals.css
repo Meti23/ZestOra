@@ -1,0 +1,359 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #FBE4DB;
+  --foreground: #190019;
+  --card: #FBE4DB;
+  --card-foreground: #190019;
+  --popover: #DEB6B2;
+  --popover-foreground: #190019;
+  --primary: #522B5B;
+  --primary-foreground: #FBE4DB;
+  --secondary: #854F6C;
+  --secondary-foreground: #FBE4DB;
+  --muted: #DEB6B2;
+  --muted-foreground: #522B5B;
+  --accent: #854F6C;
+  --accent-foreground: #FBE4DB;
+  --destructive: #d4183d;
+  --destructive-foreground: #FBE4DB;
+  --border: #854F6C;
+  --input: transparent;
+  --input-background: #DEB6B2;
+  --switch-background: #854F6C;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #522B5B;
+  --chart-1: #522B5B;
+  --chart-2: #854F6C;
+  --chart-3: #DEB6B2;
+  --chart-4: #2B124C;
+  --chart-5: #FBE4DB;
+  --radius: 0.75rem;
+  --sidebar: #190019;
+  --sidebar-foreground: #FBE4DB;
+  --sidebar-primary: #522B5B;
+  --sidebar-primary-foreground: #FBE4DB;
+  --sidebar-accent: #2B124C;
+  --sidebar-accent-foreground: #DEB6B2;
+  --sidebar-border: #522B5B;
+  --sidebar-ring: #854F6C;
+  --glow-primary: #522B5B;
+  --glow-secondary: #854F6C;
+  --spark: #DEB6B2;
+}
+
+.dark {
+  --background: #190019;
+  --foreground: #FBE4DB;
+  --card: #2B124C;
+  --card-foreground: #FBE4DB;
+  --popover: #2B124C;
+  --popover-foreground: #FBE4DB;
+  --primary: #522B5B;
+  --primary-foreground: #FBE4DB;
+  --secondary: #854F6C;
+  --secondary-foreground: #FBE4DB;
+  --muted: #522B5B;
+  --muted-foreground: #DEB6B2;
+  --accent: #854F6C;
+  --accent-foreground: #FBE4DB;
+  --destructive: #d4183d;
+  --destructive-foreground: #FBE4DB;
+  --border: #522B5B;
+  --input: #2B124C;
+  --ring: #854F6C;
+  --chart-1: #522B5B;
+  --chart-2: #854F6C;
+  --chart-3: #DEB6B2;
+  --chart-4: #2B124C;
+  --chart-5: #FBE4DB;
+  --sidebar: #190019;
+  --sidebar-foreground: #FBE4DB;
+  --sidebar-primary: #522B5B;
+  --sidebar-primary-foreground: #FBE4DB;
+  --sidebar-accent: #2B124C;
+  --sidebar-accent-foreground: #DEB6B2;
+  --sidebar-border: #522B5B;
+  --sidebar-ring: #854F6C;
+  --glow-primary: #522B5B;
+  --glow-secondary: #854F6C;
+  --spark: #DEB6B2;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Game-like animations and effects */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--glow-primary), 0 0 10px var(--glow-primary);
+  }
+  50% {
+    box-shadow: 0 0 10px var(--glow-primary), 0 0 20px var(--glow-primary), 0 0 30px var(--glow-secondary);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes spark {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rank-up {
+  0% {
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes badge-shine {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.glow-effect {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.gem-badge {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  position: relative;
+  overflow: hidden;
+}
+
+.gem-badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  animation: badge-shine 3s ease-in-out infinite;
+}
+
+.xp-bar {
+  position: relative;
+  background: var(--muted);
+  border-radius: 999px;
+  overflow: hidden;
+  height: 12px;
+}
+
+.xp-bar-fill {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  height: 100%;
+  transition: width 0.5s ease-out;
+  position: relative;
+}
+
+.xp-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: badge-shine 2s ease-in-out infinite;
+}
+
+.card-game-style {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card-game-style:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(82, 43, 91, 0.3), 0 0 20px rgba(133, 79, 108, 0.2);
+}
+
+.card-game-style::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-game-style:hover::before {
+  opacity: 1;
+}
+
+.parchment-texture {
+  background-image: 
+    linear-gradient(rgba(222, 182, 178, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(222, 182, 178, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
